@@ -1,0 +1,60 @@
+[
+  {
+    "key": "nadi_shodhana",
+    "name": "Nadi Shodhana Pranayama",
+    "name_transliterated": "Nadi Shodhana (Alternate Nostril Breathing)",
+    "duration_minutes": 10,
+    "difficulty": "beginner",
+    "cardiovascular_benefit": "Activates parasympathetic nervous system; reduces sympathetic tone. Clinically shown to reduce systolic BP by 5–15 mmHg in hypertensive patients.",
+    "steps": [
+      "Sit comfortably in Sukhasana or on a chair with spine erect.",
+      "Rest left hand on left knee (palm upward in Chin Mudra).",
+      "Use right hand Vishnu Mudra: fold index and middle fingers.",
+      "Close right nostril with thumb. Inhale through left nostril for 4 counts.",
+      "Close both nostrils. Hold for 4 counts (Kumbhaka).",
+      "Release right nostril. Exhale for 8 counts through right nostril.",
+      "Inhale through right nostril for 4 counts.",
+      "Close both nostrils. Hold for 4 counts.",
+      "Exhale through left nostril for 8 counts.",
+      "This completes one cycle. Perform 10–15 cycles."
+    ],
+    "contraindications": ["Avoid during fever", "Do not force retention if uncomfortable"]
+  },
+  {
+    "key": "sukhasana_breathing",
+    "name": "Sukhasana with Deep Diaphragmatic Breathing",
+    "name_transliterated": "Sukhasana (Easy Pose)",
+    "duration_minutes": 15,
+    "difficulty": "beginner",
+    "cardiovascular_benefit": "Reduces peripheral vascular resistance. Diaphragmatic breathing stimulates baroreceptors, lowering heart rate and diastolic pressure.",
+    "steps": [
+      "Sit cross-legged on mat. Place hands on knees, palms facing up.",
+      "Close eyes. Lengthen spine without rigidity.",
+      "Place one hand on chest, one on abdomen.",
+      "Inhale slowly through nose for 4 counts – abdomen should rise, chest stays still.",
+      "Pause for 1 count at top of breath.",
+      "Exhale through mouth with slight pursing for 6–8 counts.",
+      "Focus on the abdominal rise and fall exclusively.",
+      "Maintain for 15 minutes. Heart rate should decrease within 5 minutes."
+    ],
+    "contraindications": ["Knee discomfort – use chair modification", "Stop if dizzy"]
+  },
+  {
+    "key": "viparita_karani",
+    "name": "Viparita Karani (Legs-Up-The-Wall Pose)",
+    "name_transliterated": "Viparita Karani",
+    "duration_minutes": 10,
+    "difficulty": "beginner",
+    "cardiovascular_benefit": "Promotes venous return; reduces cardiac preload. Gravitational redistribution of blood reduces systolic workload. Evidence-based for acute BP reduction.",
+    "steps": [
+      "Place mat near a wall.",
+      "Sit sideways close to the wall, then swing legs up as you lie back.",
+      "Rest shoulders and head flat on floor. Arms relaxed by sides.",
+      "Legs rest vertically against wall at 90-degree angle.",
+      "Close eyes. Breathe naturally.",
+      "Remain in pose for 8–10 minutes.",
+      "To exit: bend knees, roll gently to one side before sitting up."
+    ],
+    "contraindications": ["Avoid if glaucoma", "Not suitable post-meals (wait 2 hours)"]
+  }
+]

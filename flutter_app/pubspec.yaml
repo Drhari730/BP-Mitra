@@ -1,0 +1,83 @@
+name: bp_mitra
+description: BP Mitra - Comprehensive Hypertension Management Application
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.1.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # State Management
+  flutter_bloc: ^8.1.4
+  bloc: ^8.1.4
+  equatable: ^2.0.5
+  provider: ^6.1.2
+
+  # Navigation
+  go_router: ^13.2.0
+
+  # Networking & API
+  http: ^1.2.1
+  dio: ^5.4.3+1
+
+  # Local Storage
+  shared_preferences: ^2.2.3
+  sqflite: ^2.3.3+1
+  path: ^1.9.0
+
+  # Notifications
+  flutter_local_notifications: ^17.1.2
+  timezone: ^0.9.4
+
+  # Camera & Vision
+  camera: ^0.10.5+9
+  permission_handler: ^11.3.1
+
+  # Sensors
+  sensors_plus: ^5.0.0
+
+  # Charting
+  fl_chart: ^0.67.0
+
+  # UI Components
+  flutter_svg: ^2.0.10+1
+  cached_network_image: ^3.3.1
+  shimmer: ^3.0.0
+  lottie: ^3.1.2
+
+  # Utilities
+  intl: ^0.19.0
+  uuid: ^4.4.0
+  rxdart: ^0.27.7
+  collection: ^1.18.0
+
+  # JSON Serialization
+  json_annotation: ^4.9.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+  build_runner: ^2.4.9
+  json_serializable: ^6.8.0
+  bloc_test: ^9.1.7
+  mocktail: ^1.0.4
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/data/dash_diet_db.json
+    - assets/data/yoga_sequences.json
+  fonts:
+    - family: Inter
+      fonts:
+        - asset: assets/fonts/Inter-Regular.ttf
+        - asset: assets/fonts/Inter-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/Inter-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/Inter-Bold.ttf
+          weight: 700

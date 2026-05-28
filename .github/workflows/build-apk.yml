@@ -5,6 +5,9 @@ on:
     branches: [main, master, claude/bp-mitra-flutter-app-yuvct]
   workflow_dispatch:
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   build:
     name: Build Release APK
@@ -32,7 +35,7 @@ jobs:
 
       - name: Build APK (release)
         working-directory: flutter_app
-        run: flutter build apk --release --no-shrink
+        run: flutter build apk --release
 
       - name: Rename APK
         run: |

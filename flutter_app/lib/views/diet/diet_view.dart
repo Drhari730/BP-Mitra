@@ -4,6 +4,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
 
 import '../../blocs/diet/diet_bloc.dart';
@@ -25,7 +26,7 @@ class _DietViewState extends State<DietView> with SingleTickerProviderStateMixin
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: 2, vsync: this);
+    _tabController = TabController(length: 3, vsync: this);
     context.read<DietBloc>().add(const LoadDayLog());
   }
 
@@ -49,6 +50,7 @@ class _DietViewState extends State<DietView> with SingleTickerProviderStateMixin
               tabs: const [
                 Tab(text: 'Today\'s Log'),
                 Tab(text: 'Meal Plan'),
+                Tab(text: 'Recipes'),
               ],
             ),
           ),
@@ -74,6 +76,7 @@ class _DietViewState extends State<DietView> with SingleTickerProviderStateMixin
               children: [
                 _DayLogTab(),
                 _MealPlanTab(),
+                _RecipesTab(),
               ],
             ),
           ),
@@ -421,6 +424,158 @@ class _MealPlanCard extends StatelessWidget {
       ),
     );
   }
+}
+
+// ── Recipes Tab ────────────────────────────────────────────────────────
+class _RecipesTab extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return ListView(
+      padding: const EdgeInsets.all(16),
+      children: [
+        // Quick-access card: Browse all 42 recipes
+        _QuickLinkCard(
+          icon: Icons.menu_book_outlined,
+          color: AppTheme.darkBlue,
+          title: 'Recipe Browser',
+          subtitle: '42 South Indian DASH recipes · Filter by day, meal & diet',
+          onTap: () => context.push('/diet/recipes'),
+        ),
+        const SizedBox(height: 12),
+        // DASH nutrition targets reference
+        _QuickLinkCard(
+          icon: Icons.science_outlined,
+          color: const Color(0xFF16A34A),
+          title: 'DASH Nutrition Targets',
+          subtitle: 'Sodium ≤1500mg · K⁺ 4700mg · Ca 1250mg · Mg 500mg',
+          onTap: () => context.push('/diet/targets'),
+        ),
+        const SizedBox(height: 20),
+        // DASH compliance guide
+        Container(
+          padding: const EdgeInsets.all(16),
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+              colors: [
+                AppTheme.darkBlue.withOpacity(0.08),
+                AppTheme.darkBlue.withOpacity(0.03),
+              ],
+            ),
+            borderRadius: BorderRadius.circular(16),
+            border:
+                Border.all(color: AppTheme.darkBlue.withOpacity(0.15)),
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Row(
+                children: [
+                  Icon(Icons.info_outline,
+                      size: 16, color: AppTheme.darkBlue),
+                  SizedBox(width: 8),
+                  Text(
+                    'South Indian DASH Protocol',
+                    style: TextStyle(
+                      fontSize: 13,
+                      fontWeight: FontWeight.w700,
+                      color: AppTheme.darkBlue,
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 10),
+              ...[
+                '🌾 Substitute white rice with ragi or millets 3×/week',
+                '🥬 Add drumstick leaves (moringa) to sambar daily',
+                '🥥 Limit coconut oil to 1 tsp/meal; avoid ghee tadka',
+                '🥒 Replace pickle with fresh coriander-mint chutney',
+                '🫙 Prioritise fermented foods: idli, dosa, curd',
+                '🥤 Coconut water as mid-meal hydration (600mg K⁺)',
+              ].map(
+                (tip) => Padding(
+                  padding: const EdgeInsets.only(bottom: 6),
+                  child: Text(tip,
+                      style: const TextStyle(
+                          fontSize: 12,
+                          color: AppTheme.midSlate,
+                          height: 1.5)),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class _QuickLinkCard extends StatelessWidget {
+  final IconData icon;
+  final Color color;
+  final String title;
+  final String subtitle;
+  final VoidCallback onTap;
+
+  const _QuickLinkCard({
+    required this.icon,
+    required this.color,
+    required this.title,
+    required this.subtitle,
+    required this.onTap,
+  });
+
+  @override
+  Widget build(BuildContext context) => GestureDetector(
+        onTap: onTap,
+        child: Container(
+          padding: const EdgeInsets.all(16),
+          decoration: BoxDecoration(
+            color: AppTheme.white,
+            borderRadius: BorderRadius.circular(16),
+            boxShadow: [
+              BoxShadow(
+                color: AppTheme.cardShadow,
+                blurRadius: 10,
+                offset: const Offset(0, 3),
+              ),
+            ],
+          ),
+          child: Row(
+            children: [
+              Container(
+                padding: const EdgeInsets.all(12),
+                decoration: BoxDecoration(
+                  color: color.withOpacity(0.12),
+                  borderRadius: BorderRadius.circular(14),
+                ),
+                child: Icon(icon, color: color, size: 24),
+              ),
+              const SizedBox(width: 14),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(title,
+                        style: const TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.w700,
+                          color: AppTheme.darkSlate,
+                        )),
+                    const SizedBox(height: 3),
+                    Text(subtitle,
+                        style: const TextStyle(
+                            fontSize: 12, color: AppTheme.midSlate)),
+                  ],
+                ),
+              ),
+              const Icon(Icons.chevron_right,
+                  color: AppTheme.lightSlate, size: 20),
+            ],
+          ),
+        ),
+      );
 }
 
 // ── Food Log Bottom Sheet ───────────────────────────────────────────────

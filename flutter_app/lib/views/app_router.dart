@@ -7,6 +7,9 @@ import 'package:go_router/go_router.dart';
 import 'dashboard/dashboard_view.dart';
 import 'medication/medication_view.dart';
 import 'diet/diet_view.dart';
+import 'diet/recipe_browser_view.dart';
+import 'diet/recipe_detail_view.dart';
+import 'diet/nutrition_targets_view.dart';
 import 'vitals/vitals_view.dart';
 import 'vitals/manual_entry_view.dart';
 import 'vitals/rppg_capture_view.dart';
@@ -36,6 +39,14 @@ class AppRouter {
 
       // ── Module 2: DASH Diet ─────────────────────────────────
       GoRoute(path: '/diet', builder: (_, __) => const DietView()),
+      GoRoute(path: '/diet/recipes', builder: (_, __) => const RecipeBrowserView()),
+      GoRoute(
+        path: '/diet/recipes/:id',
+        builder: (_, state) => RecipeDetailView(
+          recipeId: int.parse(state.pathParameters['id']!),
+        ),
+      ),
+      GoRoute(path: '/diet/targets', builder: (_, __) => const NutritionTargetsView()),
 
       // ── Module 3: Vitals ────────────────────────────────────
       GoRoute(path: '/vitals',       builder: (_, __) => const VitalsView()),

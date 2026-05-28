@@ -71,6 +71,7 @@ flutter:
   assets:
     - assets/data/dash_diet_db.json
     - assets/data/yoga_sequences.json
+    - assets/data/dash_recipes.json
   fonts:
     - family: Inter
       fonts:

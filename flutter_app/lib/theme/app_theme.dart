@@ -43,8 +43,6 @@ class AppTheme {
       onSecondary: darkBlue,
       onSurface: darkSlate,
     ),
-    fontFamily: 'Inter',
-
     // ── AppBar matches Dark Blue header block spec ────────────
     appBarTheme: const AppBarTheme(
       backgroundColor: darkBlue,
@@ -52,7 +50,6 @@ class AppTheme {
       elevation: 0,
       centerTitle: false,
       titleTextStyle: TextStyle(
-        fontFamily: 'Inter',
         fontSize: 20,
         fontWeight: FontWeight.w700,
         color: white,
@@ -88,7 +85,7 @@ class AppTheme {
         foregroundColor: white,
         padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 14),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-        textStyle: const TextStyle(fontFamily: 'Inter', fontSize: 15, fontWeight: FontWeight.w600),
+        textStyle: const TextStyle(fontSize: 15, fontWeight: FontWeight.w600),
         elevation: 0,
       ),
     ),

@@ -1,0 +1,48 @@
+name: Build APK
+
+on:
+  push:
+    branches: [main, master, claude/bp-mitra-flutter-app-yuvct]
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build Release APK
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Java 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.32.1'
+          channel: stable
+          cache: true
+
+      - name: Get dependencies
+        working-directory: flutter_app
+        run: flutter pub get
+
+      - name: Build APK (release)
+        working-directory: flutter_app
+        run: flutter build apk --release --no-shrink
+
+      - name: Rename APK
+        run: |
+          mkdir -p artifacts
+          cp flutter_app/build/app/outputs/flutter-apk/app-release.apk \
+             artifacts/BPMitra.apk
+
+      - name: Upload APK artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: BPMitra-APK
+          path: artifacts/BPMitra.apk
+          retention-days: 30

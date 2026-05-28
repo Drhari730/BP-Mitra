@@ -4,6 +4,7 @@
 
 // packages: flutter_local_notifications, timezone
 
+import 'package:flutter/material.dart' show Color;
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:timezone/timezone.dart' as tz;
 
@@ -179,7 +180,7 @@ class NotificationService {
           channelDescription: 'Behavioral nudge rewards for streak milestones',
           importance: Importance.defaultImportance,
           priority: Priority.defaultPriority,
-          color: Color(0xFF1543A4),
+          color: const Color(0xFF1543A4),
         ),
         iOS: DarwinNotificationDetails(
           presentAlert: true,

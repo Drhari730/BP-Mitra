@@ -58,7 +58,6 @@ class _RecipeBrowserViewState extends State<RecipeBrowserView>
           AppHeader(
             title: 'DASH Recipes',
             subtitle: '42 South Indian clinical recipes',
-            showBack: true,
             bottom: TabBar(
               controller: _mealTabCtrl,
               isScrollable: true,

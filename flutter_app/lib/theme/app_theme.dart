@@ -61,7 +61,7 @@ class AppTheme {
     ),
 
     // ── Card: white canvas, subtle blue-tinted shadow ─────────
-    cardTheme: CardTheme(
+    cardTheme: CardThemeData(
       color: white,
       elevation: 0,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),

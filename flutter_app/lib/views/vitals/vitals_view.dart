@@ -290,7 +290,7 @@ class _BpTrendChart extends StatelessWidget {
     }).toList();
 
     final maxY = (trend.map((t) => t.avgSystolic).reduce((a, b) => a > b ? a : b) + 20).toDouble();
-    final minY = (trend.map((t) => t.avgDiastolic).reduce((a, b) => a < b ? a : b) - 20).toDouble().clamp(40, 60);
+    final minY = (trend.map((t) => t.avgDiastolic).reduce((a, b) => a < b ? a : b) - 20).toDouble().clamp(40.0, 60.0);
 
     return Container(
       height: 220,

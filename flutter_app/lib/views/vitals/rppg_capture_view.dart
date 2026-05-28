@@ -196,7 +196,7 @@ class _RppgCaptureViewState extends State<RppgCaptureView>
           child: Container(
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 14),
             decoration: BoxDecoration(
-              color: Colors.black70,
+              color: const Color.fromRGBO(0, 0, 0, 0.7),
               borderRadius: BorderRadius.circular(16),
             ),
             child: const Text(

@@ -19,7 +19,6 @@ class NutritionTargetsView extends StatelessWidget {
           const AppHeader(
             title: 'DASH Targets',
             subtitle: 'Clinical nutrition guidelines',
-            showBack: true,
           ),
           Expanded(
             child: ListView(
